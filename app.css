@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+  --ff-body: 'Outfit', sans-serif;
+
+  --fs-300: 1.125rem;
+  --fs-600: 1.5rem;
+
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-600: 600;
+
+  --clr-primary: hsl(178, 100%, 50%);
+
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-neutral-300: hsl(215, 51%, 70%);
+  --clr-neutral-500: hsl(215, 32%, 27%);
+  --clr-neutral-600: hsl(216, 50%, 16%);
+  --clr-neutral-700: hsl(217, 54%, 11%);
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  background-color: var(--clr-neutral-700);
+  color: var(--clr-neutral-300);
+  font-size: var(--fs-300);
+  font-family: var(--ff-body);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+  letter-spacing: 0.06em;
+  display: grid;
+  place-items: center;
+}
+
+/* Remove default margin */
+body,
+h2,
+p,
+figure {
+  margin: 0;
+}
+
+a {
+  color: var(--clr-neutral-100);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--clr-primary);
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  font-size: var(--fs-600);
+}
+
+p {
+  margin-bottom: 1.6rem;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  /* display: block; */
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Card */
+.card {
+  background-color: var(--clr-neutral-600);
+  padding: 1.5rem;
+  border-radius: 1.2rem;
+  width: min(24rem, 100% - 3rem);
+}
+
+/* NFT */
+.nft__link {
+  display: grid;
+  place-items: center;
+  position: relative;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.nft__link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--clr-primary);
+  opacity: 0;
+  transition: opacity 0.4s;
+  display: grid;
+  place-items: center;
+}
+
+.nft__link:hover::after {
+  opacity: 0.5;
+}
+
+.nft__image {
+  display: block;
+}
+
+.nft__icon {
+  position: absolute;
+  transition: opacity 0.4s;
+  opacity: 0;
+  z-index: 1;
+}
+
+.nft__link:hover .nft__icon {
+  opacity: 1;
+}
+
+.nft__title {
+  margin: 1rem 0;
+  font-weight: var(--fw-600);
+}
+
+/* Info */
+.info {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.info__item {
+  display: flex;
+  align-items: center;
+  font-weight: var(--fw-400);
+}
+
+.info__icon {
+  margin-right: 0.5em;
+  height: 1.2em;
+}
+
+.price {
+  color: var(--clr-primary);
+}
+
+.expiry {
+  text-align: right;
+}
+
+/* Divider */
+.divider {
+  border-color: var(--clr-neutral-500);
+  margin: 1rem 0 1.5rem;
+}
+
+/* Credit */
+.credit {
+  display: flex;
+  margin-bottom: 0.6rem;
+  align-items: center;
+}
+
+.credit__avatar {
+  border: 1px solid var(--clr-neutral-100);
+  border-radius: 50%;
+  width: 2.5em;
+  margin-right: 1em;
+}
